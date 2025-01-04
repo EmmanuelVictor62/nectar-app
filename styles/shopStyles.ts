@@ -72,6 +72,6 @@ export const styles = StyleSheet.create({
   },
   categoryWrapper: {
     flex: 1,
-    marginBottom: 20,
+    marginBottom: 4,
   },
 });

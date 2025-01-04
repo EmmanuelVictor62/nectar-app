@@ -7,7 +7,7 @@ import { Animated, Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CategoryItem } from "../(tabs)/shop";
 
-const Category = () => {
+const Category: React.FC = () => {
   const categories = useCategoryStore((state) => state.categories);
 
   const { id } = useLocalSearchParams();
