@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "fashion-app",
-    "slug": "fashion-app",
+    "name": "nectar-app",
+    "slug": "nectar-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "fashionapp",
+    "icon": "./assets/images/carrot-img.png",
+    "scheme": "nectar",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -13,10 +13,11 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/carrot-img.png",
+        "backgroundColor": "#53B175"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.royalmanuel.nectarapp"
     },
     "web": {
       "bundler": "metro",
@@ -28,15 +29,20 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "image": "./assets/images/nectar-logo-with-text.png",
+          "resizeMode": "cover",
+          "backgroundColor": "#53B175"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "8b9e2a10-ceb3-41e4-823b-5c0c5d73d899"
+      }
     }
   }
 }
