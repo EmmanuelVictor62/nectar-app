@@ -1,7 +1,14 @@
 import { Image } from "expo-image";
 import React from "react";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import {
+  ImageBackground,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import GoogleIcon from "../assets/icons/google-icon.svg";
 
 const Onboarding = () => {
   return (
@@ -16,6 +23,8 @@ const Onboarding = () => {
           <Text>Welcome to our store</Text>
           <Text>Get your groceries in as fast as an hour</Text>
           <Text>Onboarding, okay</Text>
+          <Pressable>{/* <GoogleIcon width={24} height={24} /> */}</Pressable>
+          <GoogleIcon width={24} height={24} />
         </View>
       </ImageBackground>
     </SafeAreaView>
