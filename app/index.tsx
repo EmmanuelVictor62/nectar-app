@@ -1,50 +1,40 @@
+import Button from "@/components/Button";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import GoogleIcon from "../assets/icons/google-icon.svg";
+import { ImageBackground, Text, View } from "react-native";
+import { styles } from "./style";
 
 const Onboarding = () => {
+  const router = useRouter();
+
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      <StatusBar style="light" />
       <ImageBackground
         source={require("../assets/images/welcome-background.png")}
         resizeMode="cover"
         style={styles.imgBackground}
       >
-        <View>
-          <Image source={require("../assets/images/carrot-img.png")} />
-          <Text>Welcome to our store</Text>
-          <Text>Get your groceries in as fast as an hour</Text>
-          <Text>Onboarding, okay</Text>
-          <Pressable>{/* <GoogleIcon width={24} height={24} /> */}</Pressable>
-          <GoogleIcon width={24} height={24} />
+        <View style={styles.contentContainer}>
+          <Image
+            style={styles.icon}
+            source={require("../assets/images/carrot-img.png")}
+          />
+          <Text style={styles.textHeading}>Welcome to our store</Text>
+          <Text style={styles.textSubheading}>
+            Get your groceries in as fast as an hour
+          </Text>
+          <Button
+            title="Get Started"
+            onPress={() => router.push("./sign-in")}
+            style={{ marginTop: 20 }}
+          />
         </View>
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   );
 };
 
 export default Onboarding;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100%",
-    width: "100%",
-  },
-  imgBackground: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
-  },
-});
