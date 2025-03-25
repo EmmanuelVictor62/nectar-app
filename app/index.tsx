@@ -28,7 +28,7 @@ const Onboarding = () => {
           </Text>
           <Button
             title="Get Started"
-            onPress={() => router.push("/auth/signIn")}
+            onPress={() => router.push("/auth/signUp")}
             style={{ marginTop: 20 }}
           />
         </View>

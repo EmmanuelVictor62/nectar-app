@@ -1,18 +1,21 @@
+import LoadingIcon from "@/assets/icons/loadingSpinner.svg";
 import React from "react";
-import { Pressable, Text } from "react-native";
+import { Pressable, Text, ViewStyle } from "react-native";
 import { styles } from "./style";
 
 interface ButtonProps {
+  loading?: boolean;
   title: string;
   onPress: () => void;
   disabled?: boolean;
   type?: "primary" | "secondary";
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
-  style?: React.CSSProperties;
+  style?: ViewStyle;
 }
 
 const Button: React.FC<ButtonProps> = ({
+  loading,
   title,
   onPress,
   disabled,
@@ -27,9 +30,15 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       style={[styles.button, style]}
     >
-      {icon && iconPosition === "left" && icon}
-      <Text style={styles.buttonText}>{title}</Text>
-      {icon && iconPosition === "right" && icon}
+      {loading ? (
+        <LoadingIcon width={20} height={20} />
+      ) : (
+        <>
+          {icon && iconPosition === "left" && icon}
+          <Text style={styles.buttonText}>{title}</Text>
+          {icon && iconPosition === "right" && icon}
+        </>
+      )}
     </Pressable>
   );
 };
