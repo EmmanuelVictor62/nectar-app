@@ -1,10 +1,10 @@
 import Button from "@/components/Button";
+import { styles } from "@/styles/indexStyles";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { ImageBackground, Text, View } from "react-native";
-import { styles } from "./style";
 
 const Onboarding = () => {
   const router = useRouter();
@@ -28,7 +28,7 @@ const Onboarding = () => {
           </Text>
           <Button
             title="Get Started"
-            onPress={() => router.push("./sign-in")}
+            onPress={() => router.push("/auth/signIn")}
             style={{ marginTop: 20 }}
           />
         </View>

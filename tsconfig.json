@@ -3,7 +3,11 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@assets/*": ["./assets/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@styles/*": ["./styles/*"]
     }
   },
   "include": [
@@ -12,5 +16,6 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "metro.config.js"
-  ]
+  ],
+  "baseUrl": "./"
 }

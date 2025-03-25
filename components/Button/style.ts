@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   button: {
     width: "100%",
-    padding: 24,
+    padding: 20,
     borderRadius: 19,
     display: "flex",
     alignItems: "center",
