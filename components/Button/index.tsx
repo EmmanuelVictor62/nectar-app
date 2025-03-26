@@ -1,4 +1,4 @@
-import LoadingIcon from "@/assets/icons/loadingSpinner.svg";
+import LottieView from "lottie-react-native";
 import React from "react";
 import { Pressable, Text, ViewStyle } from "react-native";
 import { styles } from "./style";
@@ -31,7 +31,12 @@ const Button: React.FC<ButtonProps> = ({
       style={[styles.button, style]}
     >
       {loading ? (
-        <LoadingIcon width={20} height={20} />
+        <LottieView
+          source={require("@/assets/icons/loadingSpinner.json")}
+          autoPlay
+          loop
+          style={{ width: "100%", height: 24 }}
+        />
       ) : (
         <>
           {icon && iconPosition === "left" && icon}
