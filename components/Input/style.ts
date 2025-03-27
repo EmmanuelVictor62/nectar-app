@@ -33,6 +33,12 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 0,
     flex: 1,
   },
-  errorText: {},
+  errorText: {
+    fontSize: 12,
+    fontWeight: "400",
+    color: "#FF0000",
+    fontFamily: "Gilroy-Regular",
+    marginTop: 5,
+  },
   message: {},
 });

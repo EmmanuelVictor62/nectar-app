@@ -1,3 +1,4 @@
+import { AlertProvider } from "@/context/alertContext";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -15,9 +16,11 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaProvider>
-      <StatusBar style="dark" translucent backgroundColor="transparent" />
-      <Stack screenOptions={{ headerShown: false }} />
-    </SafeAreaProvider>
+    <AlertProvider>
+      <SafeAreaProvider>
+        <StatusBar style="dark" translucent backgroundColor="transparent" />
+        <Stack screenOptions={{ headerShown: false }} />
+      </SafeAreaProvider>
+    </AlertProvider>
   );
 }

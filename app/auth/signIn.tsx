@@ -1,6 +1,7 @@
 import EyeIcon from "@/assets/icons/eye.svg";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import { useAlert } from "@/context/alertContext";
 import { styles } from "@/styles/signInStyles";
 import { Link, useRouter } from "expo-router";
 import React, { useState } from "react";
@@ -12,21 +13,24 @@ const SignInScreen = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   const { control, handleSubmit } = useForm();
+  const { showAlert } = useAlert();
 
   const router = useRouter();
 
   const onSubmit = (data: any) => {
     const { email, password } = data;
 
-    setIsLoading(true);
-    if (email !== "" && password !== "") {
-      setTimeout(() => {
-        router.replace("/home");
-        setIsLoading(false);
-      }, 2000);
-    } else {
-      alert("Please enter valid email and password");
+    if (!email || !password) {
+      showAlert("Please fill in all fields", "error");
+      return;
     }
+
+    setIsLoading(true);
+    setTimeout(() => {
+      router.replace("/home");
+      setIsLoading(false);
+      showAlert("Login successful", "success");
+    }, 2000);
   };
 
   return (
