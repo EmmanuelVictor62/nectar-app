@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
-    paddingVertical: 15,
+    paddingTop: 15,
     display: "flex",
     gap: 20,
     backgroundColor: "#fff",
@@ -64,5 +64,14 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: "#53B175",
     fontFamily: "Gilroy-SemiBold",
+  },
+  productWrapper: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 20,
+  },
+  categoryWrapper: {
+    flex: 1,
+    marginBottom: 20,
   },
 });
