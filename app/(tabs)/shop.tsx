@@ -5,7 +5,15 @@ import { styles } from "@/styles/shopStyles";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import React from "react";
-import { Animated, FlatList, Image, Text, TextInput, View } from "react-native";
+import {
+  Animated,
+  FlatList,
+  Image,
+  Text,
+  TextInput,
+  View,
+  ViewStyle,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Shop = () => {
@@ -58,7 +66,7 @@ const Shop = () => {
 
 export default Shop;
 
-const CategoryHeader = ({ name, id }: { name: string; id: string }) => {
+export const CategoryHeader = ({ name, id }: { name: string; id: string }) => {
   return (
     <View style={styles.categoryHeader}>
       <Text style={styles.categoryHeaderText}>{name}</Text>
@@ -69,13 +77,20 @@ const CategoryHeader = ({ name, id }: { name: string; id: string }) => {
   );
 };
 
-const CategoryItem = ({ item }: { item: Product }) => {
+export const CategoryItem = ({
+  item,
+  style,
+}: {
+  item: Product;
+  style?: ViewStyle;
+}) => {
   return (
     <ProductCard
       image={item?.image}
       productName={item?.name}
       weight={item?.weight}
       price={item?.price}
+      style={style}
     />
   );
 };

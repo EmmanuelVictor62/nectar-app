@@ -2,7 +2,7 @@ import { images } from "@/data/images";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import React from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text, View, ViewStyle } from "react-native";
 import { styles } from "./style";
 
 interface ProductCardProps {
@@ -10,6 +10,7 @@ interface ProductCardProps {
   productName: string;
   weight?: string;
   price: number;
+  style?: ViewStyle;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -17,9 +18,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
   productName,
   weight,
   price,
+  style,
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <View style={styles.imageContainer}>
         <Image source={images[image]} alt="product" style={styles.image} />
       </View>
