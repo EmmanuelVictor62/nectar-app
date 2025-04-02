@@ -48,8 +48,29 @@ export const styles = StyleSheet.create({
     fontFamily: "Gilroy-SemiBold",
   },
   addButton: {
-    padding: 12,
+    padding: 8,
     backgroundColor: "#53B175",
-    borderRadius: 17,
+    borderRadius: 8,
+  },
+  counterContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+  counterButton: {
+    height: 32,
+    width: 32,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderColor: "#E2E2E2",
+    borderWidth: 1,
+    borderRadius: 8,
+  },
+  counter: {
+    fontSize: 16,
+    color: "#181725",
+    fontFamily: "Gilroy-Bold",
   },
 });

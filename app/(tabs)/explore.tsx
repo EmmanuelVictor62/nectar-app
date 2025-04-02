@@ -1,4 +1,5 @@
 import { mockCategories } from "@/data/mock-data";
+import { useCartActions } from "@/hooks/useCartActions";
 import { styles } from "@/styles/exploreStyles";
 import { MaterialIcons } from "@expo/vector-icons";
 import React from "react";
@@ -6,8 +7,10 @@ import { Animated, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CategoryItem } from "./shop";
 
-const explore = () => {
+const Explore = () => {
   const products = mockCategories?.flatMap((product) => product?.data);
+  const { handleAddProductToCart, getProductQuantity } = useCartActions();
+
   return (
     <SafeAreaView edges={["top"]} style={styles.container}>
       <View style={styles.inputContainer}>
@@ -21,11 +24,16 @@ const explore = () => {
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
-          <CategoryItem item={item} style={{ width: 157 }} />
+          <CategoryItem
+            item={item}
+            quantity={getProductQuantity(item?.id!)}
+            style={{ width: 157 }}
+            handleAddProductToCart={handleAddProductToCart}
+          />
         )}
       />
     </SafeAreaView>
   );
 };
 
-export default explore;
+export default Explore;

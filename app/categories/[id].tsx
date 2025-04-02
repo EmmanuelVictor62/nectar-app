@@ -1,3 +1,4 @@
+import { useCartActions } from "@/hooks/useCartActions";
 import { useCategoryStore } from "@/stores/useCategoryStore";
 import { styles } from "@/styles/categoryStyles";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -10,8 +11,9 @@ import { CategoryItem } from "../(tabs)/shop";
 const Category: React.FC = () => {
   const categories = useCategoryStore((state) => state.categories);
 
-  const { id } = useLocalSearchParams();
   const router = useRouter();
+  const { id } = useLocalSearchParams();
+  const { handleAddProductToCart, getProductQuantity } = useCartActions();
 
   const selectedCategory = categories?.find((category) => category?.id === id);
 
@@ -32,7 +34,12 @@ const Category: React.FC = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.productWrapper}
         renderItem={({ item }) => (
-          <CategoryItem item={item} style={{ width: 157 }} />
+          <CategoryItem
+            item={item}
+            quantity={getProductQuantity(item?.id!)}
+            style={{ width: 157 }}
+            handleAddProductToCart={handleAddProductToCart}
+          />
         )}
       />
     </SafeAreaView>

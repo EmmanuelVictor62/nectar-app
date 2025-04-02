@@ -1,6 +1,7 @@
 import { CarrotIcon } from "@/assets/icons/icon";
 import ProductCard from "@/components/ProductCard";
 import { mockCategories, Product } from "@/data/mock-data";
+import { useCartActions } from "@/hooks/useCartActions";
 import { styles } from "@/styles/shopStyles";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Link } from "expo-router";
@@ -17,6 +18,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Shop = () => {
+  const { handleAddProductToCart, getProductQuantity } = useCartActions();
+
   return (
     <SafeAreaView edges={["top"]} style={styles.container}>
       <View style={styles.header}>
@@ -47,7 +50,13 @@ const Shop = () => {
             keyExtractor={(item) => item.id}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.productWrapper}
-            renderItem={({ item }) => <CategoryItem item={item} />}
+            renderItem={({ item }) => (
+              <CategoryItem
+                item={item}
+                quantity={getProductQuantity(item?.id!)}
+                handleAddProductToCart={handleAddProductToCart}
+              />
+            )}
           />
         )}
         ListHeaderComponent={
@@ -79,18 +88,25 @@ export const CategoryHeader = ({ name, id }: { name: string; id: string }) => {
 
 export const CategoryItem = ({
   item,
+  quantity,
   style,
+  handleAddProductToCart,
 }: {
   item: Product;
+  quantity: number;
   style?: ViewStyle;
+  handleAddProductToCart: (item: Product) => void;
 }) => {
   return (
     <ProductCard
+      id={item?.id}
       image={item?.image}
+      quantity={quantity}
       productName={item?.name}
       weight={item?.weight}
       price={item?.price}
       style={style}
+      addProductToCart={() => handleAddProductToCart(item)}
     />
   );
 };
