@@ -13,7 +13,11 @@ const Category: React.FC = () => {
 
   const router = useRouter();
   const { id } = useLocalSearchParams();
-  const { handleAddProductToCart, getProductQuantity } = useCartActions();
+  const {
+    handleAddProductToCart,
+    getProductQuantity,
+    handleUpdateProductQuantity,
+  } = useCartActions();
 
   const selectedCategory = categories?.find((category) => category?.id === id);
 
@@ -39,6 +43,7 @@ const Category: React.FC = () => {
             quantity={getProductQuantity(item?.id!)}
             style={{ width: 157 }}
             handleAddProductToCart={handleAddProductToCart}
+            handleUpdateProductInCart={handleUpdateProductQuantity}
           />
         )}
       />

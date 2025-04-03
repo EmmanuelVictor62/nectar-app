@@ -18,7 +18,11 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Shop = () => {
-  const { handleAddProductToCart, getProductQuantity } = useCartActions();
+  const {
+    handleAddProductToCart,
+    getProductQuantity,
+    handleUpdateProductQuantity,
+  } = useCartActions();
 
   return (
     <SafeAreaView edges={["top"]} style={styles.container}>
@@ -55,6 +59,7 @@ const Shop = () => {
                 item={item}
                 quantity={getProductQuantity(item?.id!)}
                 handleAddProductToCart={handleAddProductToCart}
+                handleUpdateProductInCart={handleUpdateProductQuantity}
               />
             )}
           />
@@ -91,11 +96,17 @@ export const CategoryItem = ({
   quantity,
   style,
   handleAddProductToCart,
+  handleUpdateProductInCart,
 }: {
   item: Product;
   quantity: number;
   style?: ViewStyle;
   handleAddProductToCart: (item: Product) => void;
+  handleUpdateProductInCart: (
+    id: string,
+    quantity: number,
+    itemName: string
+  ) => void;
 }) => {
   return (
     <ProductCard
@@ -107,6 +118,9 @@ export const CategoryItem = ({
       price={item?.price}
       style={style}
       addProductToCart={() => handleAddProductToCart(item)}
+      updateProductInCart={(quantity: number) =>
+        handleUpdateProductInCart(item?.id, quantity, item?.name)
+      }
     />
   );
 };

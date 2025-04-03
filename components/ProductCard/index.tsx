@@ -14,7 +14,7 @@ interface ProductCardProps {
   price: number;
   style?: ViewStyle;
   addProductToCart: () => void;
-  //   updateProductInCart: (quantity: number) => void;
+  updateProductInCart: (quantity: number) => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -25,6 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   quantity,
   style,
   addProductToCart,
+  updateProductInCart,
 }) => {
   return (
     <View style={[styles.container, style]}>
@@ -41,11 +42,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </Pressable>
         ) : (
           <View style={styles.counterContainer}>
-            <Pressable style={styles.counterButton}>
+            <Pressable
+              style={styles.counterButton}
+              onPress={() => updateProductInCart(quantity - 1)}
+            >
               <MaterialIcons name="remove" size={18} color={"#B3B3B3"} />
             </Pressable>
             <Text style={styles.counter}>{quantity} </Text>
-            <Pressable style={styles.counterButton}>
+            <Pressable
+              style={styles.counterButton}
+              onPress={() => updateProductInCart(quantity + 1)}
+            >
               <MaterialIcons name="add" size={18} color={"#53B175"} />
             </Pressable>
           </View>

@@ -9,7 +9,11 @@ import { CategoryItem } from "./shop";
 
 const Explore = () => {
   const products = mockCategories?.flatMap((product) => product?.data);
-  const { handleAddProductToCart, getProductQuantity } = useCartActions();
+  const {
+    handleAddProductToCart,
+    getProductQuantity,
+    handleUpdateProductQuantity,
+  } = useCartActions();
 
   return (
     <SafeAreaView edges={["top"]} style={styles.container}>
@@ -29,6 +33,7 @@ const Explore = () => {
             quantity={getProductQuantity(item?.id!)}
             style={{ width: 157 }}
             handleAddProductToCart={handleAddProductToCart}
+            handleUpdateProductInCart={handleUpdateProductQuantity}
           />
         )}
       />
