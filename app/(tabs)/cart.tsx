@@ -1,4 +1,5 @@
 import CartItem from "@/components/CartItem";
+import { useCartActions } from "@/hooks/useCartActions";
 import { useCartStore } from "@/stores/useCartStore";
 import { styles } from "@/styles/cartStyles";
 import React from "react";
@@ -7,6 +8,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const Cart = () => {
   const cart = useCartStore((state) => state?.cart);
+  const { handleUpdateProductQuantity, removeProductFromCart } =
+    useCartActions();
 
   return (
     <SafeAreaView edges={["top"]} style={styles.container}>
@@ -23,6 +26,10 @@ const Cart = () => {
             weight={item?.weight}
             price={item?.price}
             image={item?.image}
+            handleUpdateProductQuantity={(quantity: number) =>
+              handleUpdateProductQuantity(item?.id, quantity, item?.name)
+            }
+            handleRemoveProductFromCart={() => removeProductFromCart(item?.id)}
           />
         )}
         style={styles.itemWrapper}
