@@ -1,8 +1,14 @@
+import { useCartStore } from "@/stores/useCartStore";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function TabLayout() {
+  const cartItemsCount = useCartStore((state) =>
+    state.cart.reduce((total, item) => total + item.quantity, 0)
+  );
+
   return (
     <>
       <StatusBar style="dark" />
@@ -40,11 +46,20 @@ export default function TabLayout() {
           options={{
             title: "Cart",
             tabBarIcon: ({ color }) => (
-              <MaterialIcons
-                name="shopping-cart-checkout"
-                size={24}
-                color={color}
-              />
+              <View style={styles.cartIconContainer}>
+                <MaterialIcons
+                  name="shopping-cart-checkout"
+                  size={24}
+                  color={color}
+                />
+                {cartItemsCount > 0 && (
+                  <View style={styles.cartIconCounter}>
+                    <Text style={styles.cartIconCounterText}>
+                      {cartItemsCount}
+                    </Text>
+                  </View>
+                )}
+              </View>
             ),
           }}
         />
@@ -61,3 +76,26 @@ export default function TabLayout() {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  cartIconContainer: {
+    position: "relative",
+  },
+  cartIconCounter: {
+    position: "absolute",
+    top: -4,
+    right: -10,
+    backgroundColor: "#53B175",
+    borderRadius: "50%",
+    paddingHorizontal: 4,
+    paddingVertical: 3,
+    minWidth: 18,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  cartIconCounterText: {
+    color: "white",
+    fontSize: 10,
+    fontFamily: "Gilroy-SemiBold",
+  },
+});
