@@ -67,7 +67,6 @@ const Shop = () => {
         ListHeaderComponent={
           <Image
             source={require("@assets/images/banner.png")}
-            resizeMode="cover"
             alt="banner"
             style={styles.banner}
           />

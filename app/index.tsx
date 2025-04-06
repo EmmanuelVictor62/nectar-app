@@ -14,7 +14,6 @@ const Onboarding = () => {
       <StatusBar style="light" />
       <ImageBackground
         source={require("../assets/images/welcome-background.png")}
-        resizeMode="cover"
         style={styles.imgBackground}
       >
         <View style={styles.contentContainer}>

@@ -4,6 +4,9 @@ export const styles = StyleSheet.create({
   container: {
     paddingVertical: 20,
     backgroundColor: "#fff",
+    position: "relative",
+    height: "100%",
+    flex: 1,
   },
   headerContainer: {
     width: "100%",
@@ -21,7 +24,12 @@ export const styles = StyleSheet.create({
   },
   itemWrapper: {
     paddingHorizontal: 20,
-    // flex: 1,
     height: "100%",
+  },
+  buttonWrapper: {
+    position: "absolute",
+    bottom: 15,
+    width: "100%",
+    paddingHorizontal: 24,
   },
 });
