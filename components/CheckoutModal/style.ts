@@ -50,7 +50,7 @@ export const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    gap: 15,
+    gap: 10,
   },
   modalListActionText: {
     fontSize: 16,

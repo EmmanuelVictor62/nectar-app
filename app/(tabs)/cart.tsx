@@ -15,6 +15,11 @@ const Cart = () => {
   const { handleUpdateProductQuantity, removeProductFromCart } =
     useCartActions();
 
+  const totalCartCost = cart?.reduce(
+    (sum, item) => sum + item?.price * item?.quantity,
+    0
+  );
+
   return (
     <SafeAreaView edges={["top"]} style={styles.container}>
       <View style={styles.headerContainer}>
@@ -44,9 +49,16 @@ const Cart = () => {
         />
       </View>
       <View style={styles.buttonWrapper}>
-        <Button title="Go To Checkout" onPress={() => {}} />
+        <Button
+          title="Go To Checkout"
+          onPress={() => setIsModalVisible(true)}
+        />
       </View>
-      <CheckoutModal visible />
+      <CheckoutModal
+        visible={isModalVisible}
+        handleCloseModal={() => setIsModalVisible(false)}
+        totalCost={totalCartCost}
+      />
     </SafeAreaView>
   );
 };
