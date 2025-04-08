@@ -8,12 +8,14 @@ interface CheckoutModalProps {
   visible: boolean;
   handleCloseModal: () => void;
   totalCost: number;
+  handleCheckout: () => void;
 }
 
 const CheckoutModal: React.FC<CheckoutModalProps> = ({
   visible,
   handleCloseModal,
   totalCost,
+  handleCheckout,
 }) => {
   return (
     <Modal
@@ -55,7 +57,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({
               <Text style={styles.termsAndConditionsSpan}>Terms</Text> and{" "}
               <Text style={styles.termsAndConditionsSpan}>Conditions</Text>
             </Text>
-            <Button title="Place order" onPress={() => {}} />
+            <Button title="Place order" onPress={handleCheckout} />
           </View>
         </View>
       </View>

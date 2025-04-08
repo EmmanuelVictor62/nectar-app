@@ -16,6 +16,7 @@ type CartStoreProps = {
   addToCart: (item: CartItemType) => void;
   removeFromCart: (id: string) => void;
   updateProductQuantity: (id: string, quantity: number) => void;
+  clearTotalItemsInCart: () => void;
 };
 
 export const useCartStore = create<CartStoreProps>()(
@@ -52,7 +53,14 @@ export const useCartStore = create<CartStoreProps>()(
           }
           return {};
         }),
+      clearTotalItemsInCart: () =>
+        set((state) => {
+          return {
+            cart: [],
+          };
+        }),
     }),
+
     {
       name: "cart-storage",
       storage: createJSONStorage(() => AsyncStorage),

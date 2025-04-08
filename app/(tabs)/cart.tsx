@@ -4,6 +4,7 @@ import CheckoutModal from "@/components/CheckoutModal";
 import { useCartActions } from "@/hooks/useCartActions";
 import { useCartStore } from "@/stores/useCartStore";
 import { styles } from "@/styles/cartStyles";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import { Animated, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -12,6 +13,9 @@ const Cart = () => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
   const cart = useCartStore((state) => state?.cart);
+  const clearItemsInCart = useCartStore(
+    (state) => state?.clearTotalItemsInCart
+  );
   const { handleUpdateProductQuantity, removeProductFromCart } =
     useCartActions();
 
@@ -19,6 +23,13 @@ const Cart = () => {
     (sum, item) => sum + item?.price * item?.quantity,
     0
   );
+
+  const router = useRouter();
+
+  const handleCheckout = () => {
+    clearItemsInCart();
+    router.replace("/orderSuccess");
+  };
 
   return (
     <SafeAreaView edges={["top"]} style={styles.container}>
@@ -58,6 +69,7 @@ const Cart = () => {
         visible={isModalVisible}
         handleCloseModal={() => setIsModalVisible(false)}
         totalCost={totalCartCost}
+        handleCheckout={handleCheckout}
       />
     </SafeAreaView>
   );
