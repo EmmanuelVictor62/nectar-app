@@ -1,6 +1,7 @@
 import EyeIcon from "@/assets/icons/eye.svg";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import { useAuthStore, UserType } from "@/stores/useAuth";
 import { styles } from "@/styles/signInStyles";
 import { Link, useRouter } from "expo-router";
 import React, { useState } from "react";
@@ -8,11 +9,29 @@ import { useForm } from "react-hook-form";
 import { Pressable, Text, View } from "react-native";
 
 const SignUpScreen = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+
+  const setUser = useAuthStore((state) => state.setUser);
 
   const { control, handleSubmit } = useForm();
 
   const router = useRouter();
+
+  const handleSignUp = (data: any) => {
+    const user: UserType = {
+      name: data.username,
+      email: data.email,
+      password: data.password,
+    };
+
+    setTimeout(() => {
+      setIsLoading(true);
+      setUser(user);
+      router.replace("/shop");
+    }, 2000);
+    setIsLoading(false);
+  };
 
   return (
     <View style={styles.container}>
@@ -60,7 +79,11 @@ const SignUpScreen = () => {
         <Text style={styles.termsOfService}>
           By continuing you agree to our Terms of Service and Privacy Policy.
         </Text>
-        <Button title="Sign Up" onPress={() => router.replace("/shop")} />
+        <Button
+          title="Sign Up"
+          onPress={handleSubmit(handleSignUp)}
+          loading={isLoading}
+        />
         <Pressable style={styles.signUpLinkContainer}>
           <Text style={styles.signUpLinkText}>Already have an account? </Text>
           <Link href="/auth/signIn" style={styles.signUpLink}>

@@ -60,7 +60,6 @@ export const useCartStore = create<CartStoreProps>()(
           };
         }),
     }),
-
     {
       name: "cart-storage",
       storage: createJSONStorage(() => AsyncStorage),
