@@ -18,9 +18,9 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   image: {
-    width: "auto",
     height: 60,
     flexShrink: 0,
+    resizeMode: "contain",
   },
   contentContainer: {
     display: "flex",

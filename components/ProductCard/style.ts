@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
   image: {
     width: "90%",
     height: "100%",
+    resizeMode: "contain",
   },
   productName: {
     fontSize: 16,
