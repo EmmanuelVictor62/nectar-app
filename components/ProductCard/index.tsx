@@ -1,6 +1,7 @@
 import { images } from "@/utils/images";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Image } from "expo-image";
+import { Link } from "expo-router";
 import React from "react";
 import { Pressable, Text, View, ViewStyle } from "react-native";
 import { styles } from "./style";
@@ -18,6 +19,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
+  id,
   image,
   productName,
   weight,
@@ -29,9 +31,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   return (
     <View style={[styles.container, style]}>
-      <View style={styles.imageContainer}>
+      <Link
+        href={{ pathname: "/product/[id]", params: { id } }}
+        style={styles.imageContainer}
+      >
         <Image source={images[image]} alt="product" style={styles.image} />
-      </View>
+      </Link>
       <Text style={styles.productName}>{productName} </Text>
       <Text style={styles.weight}>{weight} </Text>
       <View style={styles.priceContainer}>
