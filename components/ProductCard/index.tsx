@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <View style={[styles.container, style]}>
       <Link
-        href={{ pathname: "/product/[id]", params: { id } }}
+        href={{ pathname: "/products/[id]", params: { id: id } }}
         style={styles.imageContainer}
       >
         <Image source={images[image]} alt="product" style={styles.image} />

@@ -1,4 +1,4 @@
-import { useAuthStore } from "@/stores/useAuth";
+import { useAuthStore } from "@/stores/useAuthStore";
 import { styles } from "@/styles/accountStyles";
 import { MaterialIcons } from "@expo/vector-icons";
 import React from "react";

@@ -1,7 +1,7 @@
 import EyeIcon from "@/assets/icons/eye.svg";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
-import { useAuthStore, UserType } from "@/stores/useAuth";
+import { useAuthStore, UserType } from "@/stores/useAuthStore";
 import { styles } from "@/styles/signInStyles";
 import { Link, useRouter } from "expo-router";
 import React, { useState } from "react";
