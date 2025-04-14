@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import { useAuthStore } from "@/stores/useAuthStore";
 import { styles } from "@/styles/indexStyles";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
@@ -7,7 +8,17 @@ import React from "react";
 import { ImageBackground, Text, View } from "react-native";
 
 const Onboarding = () => {
+  const user = useAuthStore((state) => state?.user);
+
   const router = useRouter();
+
+  const handleAuthRedirect = () => {
+    if (!user) {
+      router.push("/auth/signUp");
+    } else {
+      router.push("/shop");
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -27,7 +38,7 @@ const Onboarding = () => {
           </Text>
           <Button
             title="Get Started"
-            onPress={() => router.push("/auth/signUp")}
+            onPress={handleAuthRedirect}
             style={{ marginTop: 20 }}
           />
         </View>

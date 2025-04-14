@@ -50,6 +50,9 @@ const SignUpScreen = () => {
           keyboardType="default"
           autoCorrect={false}
           autoCapitalize="none"
+          rules={{
+            required: "Username is required",
+          }}
         />
         <Input
           name="email"
@@ -59,6 +62,13 @@ const SignUpScreen = () => {
           keyboardType="email-address"
           autoCorrect={false}
           autoCapitalize="none"
+          rules={{
+            required: "Email is required",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Enter a valid email address",
+            },
+          }}
         />
         <Input
           name="password"
@@ -66,6 +76,9 @@ const SignUpScreen = () => {
           control={control}
           secureTextEntry={!isPasswordVisible}
           maxLength={30}
+          rules={{
+            required: "Password is required",
+          }}
           icon={
             <EyeIcon
               width={16}
