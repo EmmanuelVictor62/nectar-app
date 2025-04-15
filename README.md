@@ -1,50 +1,103 @@
-# Welcome to your Expo app 👋
+# Nectar Grocery App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A grocery delivery application built with **React Native** and **Expo**. The app allows users to browse through a list of products and includes features such as:
 
-## Get started
+- User authentication with `AsyncStorage`
+- Input validation using `react-hook-form`
+- Product browsing, cart management, and a mock checkout flow
+- A clean and modern interface designed for smooth user experience
 
-1. Install dependencies
+This project showcases a blend of thoughtful UI/UX and practical mobile app functionality using modern React Native tooling.
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## 📲 Preview
 
-   ```bash
-   npx expo start
-   ```
+### 🔐 Login & Sign Up Screen
 
-In the output, you'll find options to open the app in a
+Uses **React Hook Form** for validating user inputs with custom rules. Helps reduce boilerplate while maintaining robust validation.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+![Login Screen](assets/github_images/login.jpg)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+### 🛒 Shop Screen
 
-When you're ready, run:
+Displayed immediately after a successful sign-in. Shows a scrollable list of available grocery products.
 
-```bash
-npm run reset-project
-```
+![Shop Screen](assets/github_images/shop.jpg)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+### 📦 Product Screen
 
-To learn more about developing your project with Expo, look at the following resources:
+Displays product details and allows users to add/remove items from the cart.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+![Product Screen](assets/github_images/product-details.jpg)
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+### 🔍 Explore Screen
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Helps users navigate and discover available items through a clean UI.
+
+![Explore Screen](assets/github_images/explore.jpg)
+
+---
+
+### 🧺 Cart Screen
+
+Shows all selected items in the user's cart along with quantity and price information.
+
+![Cart Screen](assets/github_images/cart.jpg)
+
+---
+
+### ✅ Order Success Screen
+
+Confirms successful order placement and provides the user with relevant details or next steps.
+
+![Order Success Screen](assets/github_images/order-success.jpg)
+
+---
+
+### 👤 Account Screen
+
+Provides navigation to additional account management features and menus.
+
+![Account Screen](assets/github_images/account.jpg)
+
+---
+
+## 🎥 App Demo Walkthrough
+
+[▶ Watch App Demo](https://www.capcut.com/s/Ca6uEk3pv2SM4CA5/)
+
+![App Demo GIF](assets/github_images/app_demo.gif)
+
+---
+
+## 🧰 Tech Stack
+
+This project was built using:
+
+- **React Native** – for building the mobile UI
+- **Expo** – to streamline development and deployment
+- **TypeScript** – for type-safe development
+- **Zustand** – simple and scalable global state management
+- **AsyncStorage** – for local data persistence
+- **React Navigation** – for intuitive screen transitions
+- **React Hook Form** – for form validation
+- **Custom Reusable Components** – for consistent design system
+
+---
+
+## 👨‍💻 About the Developer
+
+Built by Emmanuel Victor Isaac — a passionate full-stack developer focused on frontend experiences with real-world impact.
+
+[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/emmanuel-victor-isaac/)
+
+📬 Contact: **emmanuelvictor.dev@gmail.com**
+
+---

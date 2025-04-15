@@ -13,11 +13,12 @@ const Onboarding = () => {
   const router = useRouter();
 
   const handleAuthRedirect = () => {
-    if (!user) {
-      router.push("/auth/signUp");
-    } else {
-      router.push("/shop");
-    }
+    // if (!user) {
+    //   router.push("/auth/signUp");
+    // } else {
+    //   router.push("/shop");
+    // }
+    router.push("/auth/signUp");
   };
 
   return (
