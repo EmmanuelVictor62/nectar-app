@@ -11,6 +11,14 @@ This project showcases a blend of thoughtful UI/UX and practical mobile app func
 
 ---
 
+## 🎥 App Demo Walkthrough
+
+[▶ Watch App Demo](https://www.capcut.com/s/Ca6uEk3pv2SM4CA5/)
+
+![App Demo GIF](assets/github_images/nectar-app.gif)
+
+---
+
 ## 📲 Preview
 
 ### 🔐 Login & Sign Up Screen
@@ -66,14 +74,6 @@ Confirms successful order placement and provides the user with relevant details 
 Provides navigation to additional account management features and menus.
 
 ![Account Screen](assets/github_images/account.jpg)
-
----
-
-## 🎥 App Demo Walkthrough
-
-[▶ Watch App Demo](https://www.capcut.com/s/Ca6uEk3pv2SM4CA5/)
-
-![App Demo GIF](assets/github_images/app_demo.gif)
 
 ---
 
