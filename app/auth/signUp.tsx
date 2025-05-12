@@ -60,7 +60,7 @@ const SignUpScreen = () => {
         <Text style={styles.termsOfService}>
           By continuing you agree to our Terms of Service and Privacy Policy.
         </Text>
-        <Button title="Sign Up" onPress={() => null} />
+        <Button title="Sign Up" onPress={() => router.replace("/shop")} />
         <Pressable style={styles.signUpLinkContainer}>
           <Text style={styles.signUpLinkText}>Already have an account? </Text>
           <Link href="/auth/signIn" style={styles.signUpLink}>

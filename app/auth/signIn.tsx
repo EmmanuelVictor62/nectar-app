@@ -27,7 +27,7 @@ const SignInScreen = () => {
 
     setIsLoading(true);
     setTimeout(() => {
-      router.replace("/home");
+      router.replace("/shop");
       setIsLoading(false);
       showAlert("Login successful", "success");
     }, 2000);
